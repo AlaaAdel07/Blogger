@@ -27,6 +27,14 @@ const UserRouter = require("./routers/UserRouter")
 const PostRouter = require("./routers/PostRouter")
 const CommentRouter = require("./routers/CommentRouter")
 
+app.get('/',(eq, res)=>{
+    try {
+        res.send("Welcome to BlogPost APP");
+    } catch (error) {
+        res.statusCode = 422;
+        res.send(error);
+    }
+}
 
 app.use((req, res, next) => {
     console.log(`Request Url : ${req.url}, Request method : ${req.method}, Date of Request: ${Date()}`);
